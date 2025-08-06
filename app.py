@@ -20,8 +20,9 @@ def results():
         df = pd.DataFrame(jobs)
         filename = f"jobs_{keyword}_{datetime.now().strftime('%Y-%m-%d')}.csv"
         df.to_csv(f"static/{filename}", index=False)
-
-    return render_template("results.html", jobs=jobs, keyword=keyword)
+        return render_template("results.html", jobs=jobs, keyword=keyword)
+    else:
+        return(f"There are no jobs for this keyword :(")
 
 
 
